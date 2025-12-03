@@ -2432,12 +2432,32 @@
 									"model": {
 										"$ref": "AAAAAAGa3sg/FkLUeYY="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGa41d4j9S4/K4=",
+											"_parent": {
+												"$ref": "AAAAAAGa3sg/F0Lds+k="
+											},
+											"model": {
+												"$ref": "AAAAAAGa41d4d9SvEz4="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 1165,
+											"top": 877,
+											"width": 199,
+											"height": 13,
+											"text": "+getMateriale : Materiale()",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"parentStyle": true,
 									"left": 1160,
 									"top": 872,
 									"width": 209,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5923,6 +5943,16 @@
 							"name": "materiale",
 							"visibility": "private",
 							"type": "Materiale"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGa41d4d9SvEz4=",
+							"_parent": {
+								"$ref": "AAAAAAGa3sg/FkLUeYY="
+							},
+							"name": "getMateriale : Materiale"
 						}
 					]
 				},
