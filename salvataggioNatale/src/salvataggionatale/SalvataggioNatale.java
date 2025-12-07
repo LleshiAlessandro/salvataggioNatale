@@ -14,7 +14,8 @@ public class SalvataggioNatale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        SalvataggioNataleInterface form = new SalvataggioNataleInterface();
+        form.setVisible(true);
     }
     
 }
