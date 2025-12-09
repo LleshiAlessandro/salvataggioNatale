@@ -5,6 +5,7 @@
 package salvataggionatale;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -12,15 +13,17 @@ import java.util.ArrayList;
  */
 public class Elfo {
     private String nome;
-    protected ArrayList <String> specializzazione = new ArrayList();//qua capisco se il mio elfo è un meccanico o un mago
     private int abilitaMeccanica;
+    private String s;
     private int stanchezza;
     private int abilitaMagica;
+    int rdn = new Random().nextInt(1, 2);
+    
     
     //costruttroe della classe
-    public Elfo(String nome, ArrayList <String> specializzazione){
+    public Elfo(String nome, String s){
         this.nome = nome;
-        this.specializzazione = specializzazione;
+        this.s = s;
     }
     
     //get e set del nome
@@ -32,11 +35,11 @@ public class Elfo {
     }
     
     //get e set della specializzazione
-    public void setSpecializzazione(ArrayList specializzazione){
-        this.specializzazione = specializzazione;
+    public void setSpecializzazione(String s){
+        this.s = s;
     }
-    public <String> ArrayList getSpecializzazione(){
-        return specializzazione;
+    public String getSpecializzazione(){
+        return s;
     }
     
     //get e set dell'abilità meccanica
@@ -62,5 +65,13 @@ public class Elfo {
     public int getStanchezza(){
         return stanchezza;
     }
-    
+    public String tipoElfo(){
+        if(rdn == 1){
+            return s = "meccanico";
+        }
+        else if(rdn == 2){
+            return s = "mago";
+        }
+        return "errore";
+    }
 }

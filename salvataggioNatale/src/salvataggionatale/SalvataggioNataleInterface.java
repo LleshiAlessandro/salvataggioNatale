@@ -14,14 +14,15 @@ import javax.swing.JOptionPane;
 public class SalvataggioNataleInterface extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SalvataggioNataleInterface.class.getName());
-
     
+    Elfo e;
     
     
     
     public SalvataggioNataleInterface() {
         Color c = new Color(30,160,30);
         this.getContentPane().setBackground(c);
+        
         initComponents();
     }
 
@@ -237,7 +238,8 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_istruzioniActionPerformed
 
     private void assegnaElfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaElfoActionPerformed
-        
+        String tipo = this.tipoElfo();
+        e = new Elfo((String)scegliElfo.getSelectedItem(), tipo);
     }//GEN-LAST:event_assegnaElfoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -4,7 +4,7 @@
  */
 package salvataggionatale;
 
-import java.util.ArrayList;
+
 
 /**
  *
@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class ElfoMeccanico extends Elfo{
     
-    public ElfoMeccanico(String nome, ArrayList<String> specializzazione) {
-        super(nome, specializzazione);
+    public ElfoMeccanico(String nome,String s) {
+        super(nome,s);
     }
     
 }

@@ -71,18 +71,22 @@
                       <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                           <Component id="creaGiocattolo" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="nomeGiocattolo" min="-2" pref="115" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="istruzioni" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="assegnaMacchinario" max="32767" attributes="0"/>
-                          <Component id="materiali" min="-2" pref="255" max="-2" attributes="0"/>
-                          <Component id="scegliMacchinario" min="-2" pref="189" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="nomeGiocattolo" min="-2" pref="115" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="materiali" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="scegliMacchinario" min="-2" pref="189" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -260,7 +264,6 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="evento casuale"/>
-        <Property name="actionCommand" type="java.lang.String" value="evento casuale"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
