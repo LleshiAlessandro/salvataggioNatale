@@ -16,6 +16,8 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SalvataggioNataleInterface.class.getName());
     
     Elfo e;
+    Macchinario m;
+    Giocattolo g;
     
     
     
@@ -40,7 +42,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         scegliMacchinario = new javax.swing.JComboBox<>();
         assegnaElfo = new javax.swing.JButton();
         assegnaMacchinario = new javax.swing.JButton();
-        materiali = new javax.swing.JComboBox<>();
+        materialiComboBox = new javax.swing.JComboBox<>();
         nomeGiocattolo = new javax.swing.JLabel();
         creaGiocattolo = new javax.swing.JButton();
         informations = new javax.swing.JLabel();
@@ -50,6 +52,8 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         materialeSelezionato = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         titolo = new javax.swing.JLabel();
+        selezionaMateriale = new javax.swing.JButton();
+        giocattoliComboBox = new javax.swing.JComboBox<>();
 
         scegliElfo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         scegliElfo1.setName("scegliElfo"); // NOI18N
@@ -86,18 +90,28 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         });
 
         assegnaMacchinario.setText("assegna macchinario ----> elfo selezionato");
-
-        materiali.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "diamante", "legno", "cemento armato", "ghiaccio", "luminite" }));
-        materiali.setName("scegliElfo"); // NOI18N
-        materiali.addActionListener(new java.awt.event.ActionListener() {
+        assegnaMacchinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                materialiActionPerformed(evt);
+                assegnaMacchinarioActionPerformed(evt);
             }
         });
 
-        nomeGiocattolo.setText("scegli un giocattolo");
+        materialiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "diamante", "legno", "cemento armato", "ghiaccio", "luminite" }));
+        materialiComboBox.setName("scegliElfo"); // NOI18N
+        materialiComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materialiComboBoxActionPerformed(evt);
+            }
+        });
+
+        nomeGiocattolo.setText("giocattolo richiesto <3");
 
         creaGiocattolo.setText("crea giocattolo");
+        creaGiocattolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creaGiocattoloActionPerformed(evt);
+            }
+        });
 
         informations.setToolTipText("");
 
@@ -108,14 +122,13 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
             }
         });
 
-        elfoSelezionato.setText("elfo selezionato");
+        elfoSelezionato.setText("caratteristiche elfo selezionato");
 
-        macchinarioSelezionato.setText("macchinario selezionato");
+        macchinarioSelezionato.setText("caratteristiche macchinario selezionato");
 
         materialeSelezionato.setText("materiale selezionato");
 
         jButton1.setText("evento casuale");
-        jButton1.setActionCommand("evento casuale");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -125,86 +138,95 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         titolo.setFont(new java.awt.Font("Gabriola", 0, 24)); // NOI18N
         titolo.setText("Fabbrica di giocattoli di Babbo Natale");
 
+        selezionaMateriale.setText("assegna materiale");
+        selezionaMateriale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selezionaMaterialeActionPerformed(evt);
+            }
+        });
+
+        giocattoliComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "robot", "accetta", "martello", "spada", "katana" }));
+        giocattoliComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giocattoliComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(informations)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(selezionaMateriale, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(macchinarioSelezionato, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scegliMacchinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(assegnaMacchinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(assegnaElfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(materialiComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scegliElfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(elfoSelezionato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(informations)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(elfoSelezionato))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(macchinarioSelezionato))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(materialeSelezionato)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(creaGiocattolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(nomeGiocattolo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(176, 176, 176)
+                                .addComponent(titolo))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(istruzioni)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(71, 71, 71)
                                 .addComponent(jButton1))
-                            .addComponent(assegnaMacchinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(materiali, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(assegnaElfo))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(423, 423, 423))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(218, 218, 218)
-                .addComponent(titolo)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(nomeGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                                .addComponent(creaGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(materialeSelezionato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addComponent(giocattoliComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 280, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titolo, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addComponent(titolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(assegnaElfo)
+                .addGap(21, 21, 21)
+                .addComponent(elfoSelezionato)
+                .addGap(18, 18, 18)
+                .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(assegnaMacchinario)
+                .addGap(22, 22, 22)
+                .addComponent(macchinarioSelezionato, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(materialiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(selezionaMateriale)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(347, 347, 347)
+                        .addGap(66, 66, 66)
                         .addComponent(informations))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(assegnaElfo)
                         .addGap(18, 18, 18)
-                        .addComponent(elfoSelezionato)
-                        .addGap(21, 21, 21)
-                        .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(assegnaMacchinario)
-                        .addGap(18, 18, 18)
-                        .addComponent(macchinarioSelezionato, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(materiali, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(materialeSelezionato)
-                        .addGap(18, 18, 18)
-                        .addComponent(nomeGiocattolo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(creaGiocattolo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(istruzioni)
-                            .addComponent(jButton1))))
+                        .addGap(10, 10, 10)
+                        .addComponent(giocattoliComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(creaGiocattolo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nomeGiocattolo)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(istruzioni)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -224,9 +246,9 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_scegliMacchinarioActionPerformed
 
-    private void materialiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialiActionPerformed
+    private void materialiComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialiComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_materialiActionPerformed
+    }//GEN-LAST:event_materialiComboBoxActionPerformed
 
     private void istruzioniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_istruzioniActionPerformed
         String testo = " per il funzionamento corretto dell'industria:" + "\n"
@@ -238,13 +260,33 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_istruzioniActionPerformed
 
     private void assegnaElfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaElfoActionPerformed
-        String tipo = this.tipoElfo();
+        String tipo = Elfo.tipoElfo();
         e = new Elfo((String)scegliElfo.getSelectedItem(), tipo);
+        elfoSelezionato.setText(String.valueOf(e));
     }//GEN-LAST:event_assegnaElfoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void assegnaMacchinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaMacchinarioActionPerformed
+        m = new Macchinario((String)scegliMacchinario.getSelectedItem());
+        macchinarioSelezionato.setText(String.valueOf(m));
+    }//GEN-LAST:event_assegnaMacchinarioActionPerformed
+
+    private void selezionaMaterialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaMaterialeActionPerformed
+
+        materialeSelezionato.setText((String)materialiComboBox.getSelectedItem());
+    }//GEN-LAST:event_selezionaMaterialeActionPerformed
+
+    private void creaGiocattoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaGiocattoloActionPerformed
+        g = new Giocattolo((String)giocattoliComboBox.getSelectedItem(),(Materiale)materialiComboBox.getSelectedItem());
+        nomeGiocattolo.setText(String.valueOf(g));
+    }//GEN-LAST:event_creaGiocattoloActionPerformed
+
+    private void giocattoliComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giocattoliComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_giocattoliComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,16 +318,18 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     private javax.swing.JButton assegnaMacchinario;
     private javax.swing.JButton creaGiocattolo;
     private javax.swing.JLabel elfoSelezionato;
+    private javax.swing.JComboBox<String> giocattoliComboBox;
     private javax.swing.JLabel informations;
     private javax.swing.JButton istruzioni;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel macchinarioSelezionato;
     private javax.swing.JLabel materialeSelezionato;
-    private javax.swing.JComboBox<String> materiali;
+    private javax.swing.JComboBox<String> materialiComboBox;
     private javax.swing.JLabel nomeGiocattolo;
     private javax.swing.JComboBox<String> scegliElfo;
     private javax.swing.JComboBox<String> scegliElfo1;
     private javax.swing.JComboBox<String> scegliMacchinario;
+    private javax.swing.JButton selezionaMateriale;
     private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }

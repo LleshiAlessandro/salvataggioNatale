@@ -4,7 +4,6 @@
  */
 package salvataggionatale;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -14,16 +13,16 @@ import java.util.Random;
 public class Elfo {
     private String nome;
     private int abilitaMeccanica;
-    private String s;
+    private String specializzazione;
     private int stanchezza;
     private int abilitaMagica;
-    int rdn = new Random().nextInt(1, 2);
+
     
     
     //costruttroe della classe
     public Elfo(String nome, String s){
         this.nome = nome;
-        this.s = s;
+        this.specializzazione = s;
     }
     
     //get e set del nome
@@ -36,10 +35,10 @@ public class Elfo {
     
     //get e set della specializzazione
     public void setSpecializzazione(String s){
-        this.s = s;
+        this.specializzazione = s;
     }
     public String getSpecializzazione(){
-        return s;
+        return specializzazione;
     }
     
     //get e set dell'abilità meccanica
@@ -65,13 +64,20 @@ public class Elfo {
     public int getStanchezza(){
         return stanchezza;
     }
-    public String tipoElfo(){
+    public static String tipoElfo(){
+        int rdn = new Random().nextInt(1, 3);
         if(rdn == 1){
-            return s = "meccanico";
+            return "meccanico";
         }
         else if(rdn == 2){
-            return s = "mago";
+            return "mago";
         }
         return "errore";
+    }
+    
+    //to string
+    @Override
+    public String toString(){
+        return " nome elfo: " + nome + " specializzazione: " + specializzazione;
     }
 }

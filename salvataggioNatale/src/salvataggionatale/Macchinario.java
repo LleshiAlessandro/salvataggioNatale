@@ -50,4 +50,9 @@ public class Macchinario {
     public int getStanchezza(){
         return usura;
     }
+    
+    //to string
+    public String toString(){
+        return " nome macchinario: " + nome;
+    }
 }
