@@ -9,7 +9,7 @@ package salvataggionatale;
  * @author aless
  */
 public class Macchinario {
-    private String nome;
+    String nome;
     private int usura;
     private int qualitaMeccanica;
     private int qualitaMagica;
@@ -52,6 +52,7 @@ public class Macchinario {
     }
     
     //to string
+    @Override
     public String toString(){
         return " nome macchinario: " + nome;
     }

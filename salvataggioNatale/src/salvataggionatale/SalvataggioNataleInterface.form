@@ -48,19 +48,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="selezionaMateriale" alignment="0" max="32767" attributes="0"/>
-                          <Component id="macchinarioSelezionato" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="scegliMacchinario" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="assegnaMacchinario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="assegnaElfo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="materialiComboBox" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                          <Component id="scegliElfo" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="elfoSelezionato" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="informations" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -69,21 +56,36 @@
                               <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                               <Component id="titolo" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="istruzioni" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="nomeGiocattolo" alignment="0" pref="255" max="32767" attributes="0"/>
-                              <Component id="creaGiocattolo" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="nomeGiocattolo" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="materialeSelezionato" alignment="0" pref="180" max="32767" attributes="0"/>
                               <Component id="giocattoliComboBox" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="creaGiocattolo" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="istruzioni" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="startFabbrica" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="macchinarioSelezionato" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="scegliMacchinario" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="materialiComboBox" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                          <Component id="scegliElfo" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="elfoSelezionato" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                          <Component id="assegnaMacchinario" alignment="0" max="32767" attributes="0"/>
+                          <Component id="assegnaElfo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="selezionaMateriale" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -111,18 +113,18 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="selezionaMateriale" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Component id="informations" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="materialeSelezionato" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="giocattoliComboBox" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Component id="creaGiocattolo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="nomeGiocattolo" min="-2" max="-2" attributes="0"/>
@@ -130,6 +132,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="istruzioni" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startFabbrica" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -296,6 +299,14 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="startFabbrica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="start"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startFabbricaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -17,7 +17,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     
     Elfo e;
     Macchinario m;
-    Giocattolo g;
+    //Giocattolo g;
     
     
     
@@ -54,6 +54,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         titolo = new javax.swing.JLabel();
         selezionaMateriale = new javax.swing.JButton();
         giocattoliComboBox = new javax.swing.JComboBox<>();
+        startFabbrica = new javax.swing.JButton();
 
         scegliElfo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         scegliElfo1.setName("scegliElfo"); // NOI18N
@@ -152,6 +153,13 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
             }
         });
 
+        startFabbrica.setText("start");
+        startFabbrica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startFabbricaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,34 +168,36 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(selezionaMateriale, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(macchinarioSelezionato, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scegliMacchinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(assegnaMacchinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(assegnaElfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(materialiComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scegliElfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(elfoSelezionato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(informations)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(176, 176, 176)
                                 .addComponent(titolo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(istruzioni)
-                                .addGap(71, 71, 71)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(nomeGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                                .addComponent(creaGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(nomeGiocattolo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(materialeSelezionato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                .addComponent(giocattoliComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 280, Short.MAX_VALUE))))
+                                .addComponent(giocattoliComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(creaGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(istruzioni)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(startFabbrica)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1))))
+                        .addGap(0, 280, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(macchinarioSelezionato)
+                            .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(materialiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(elfoSelezionato, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(assegnaMacchinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(assegnaElfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(selezionaMateriale, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,7 +236,8 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(istruzioni)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(startFabbrica))
                 .addContainerGap())
         );
 
@@ -251,11 +262,17 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_materialiComboBoxActionPerformed
 
     private void istruzioniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_istruzioniActionPerformed
-        String testo = " per il funzionamento corretto dell'industria:" + "\n"
-                  + " bisogna prima di tutto scegliere l'elfo che si vuole utilizzare,"+"\n"
-                  + " poi in secondo luogo bisogna assegnare un macchinario all'elfo precendentemente scelto " +"\n"+ " (dato che ogni elfo ha la sua maestria ad usare un macchinario e quindi il giocattolo verrà perfetto grazie alla magia del natale),"+"\n"
-                  + " come terzo passaggio bisogna segliere il materiale con cui vogliamo creare il giocattolo"+"\n"+" (il materiale lo si sceglie in base al macchinario, dato che ogni macchinario aggiungerà la propria magia del natale al giocattolo),"+"\n"
-                  + " in fine creiamo il giocattolo"+"\n"+" e speriamo di aver fatto le giuste scelte per creare il giocattolo perfetto e di conseguenza accontentare tutti i bambini del mondo";
+        String testo = """
+                        per il funzionamento corretto dell'industria:
+                        bisogna prima di tutto scegliere l'elfo che si vuole utilizzare,
+                        poi in secondo luogo bisogna assegnare un macchinario all'elfo precendentemente scelto 
+                        (dato che ogni elfo ha la sua maestria ad usare un macchinario e quindi il giocattolo verr\u00e0 perfetto grazie alla magia del natale),
+                        come terzo passaggio bisogna segliere il materiale con cui vogliamo creare il giocattolo
+                        (il materiale lo si sceglie in base al macchinario, dato che ogni macchinario aggiunger\u00e0 la propria magia del natale al giocattolo),
+                        in fine creiamo il giocattolo
+                        e speriamo di aver fatto le giuste scelte per creare il giocattolo perfetto e di conseguenza accontentare tutti i bambini del mondo
+                       CLICCA START SOLO QUANDO HAI INSERITO TUTTI I DATI""";
+                        
         JOptionPane.showMessageDialog(null, testo);
     }//GEN-LAST:event_istruzioniActionPerformed
 
@@ -280,13 +297,18 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_selezionaMaterialeActionPerformed
 
     private void creaGiocattoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaGiocattoloActionPerformed
-        g = new Giocattolo((String)giocattoliComboBox.getSelectedItem(),(Materiale)materialiComboBox.getSelectedItem());
-        nomeGiocattolo.setText(String.valueOf(g));
+        nomeGiocattolo.setText((String)giocattoliComboBox.getSelectedItem());
     }//GEN-LAST:event_creaGiocattoloActionPerformed
 
     private void giocattoliComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giocattoliComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_giocattoliComboBoxActionPerformed
+
+    private void startFabbricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startFabbricaActionPerformed
+        
+        e.aumetnaQualita(m);
+        
+    }//GEN-LAST:event_startFabbricaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,6 +352,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> scegliElfo1;
     private javax.swing.JComboBox<String> scegliMacchinario;
     private javax.swing.JButton selezionaMateriale;
+    private javax.swing.JButton startFabbrica;
     private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }

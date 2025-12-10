@@ -17,7 +17,7 @@ public class Elfo {
     private int stanchezza;
     private int abilitaMagica;
 
-    
+    CatenaDiMontaggio c = new CatenaDiMontaggio();
     
     //costruttroe della classe
     public Elfo(String nome, String s){
@@ -64,6 +64,8 @@ public class Elfo {
     public int getStanchezza(){
         return stanchezza;
     }
+    
+    //controllo tipo elfo
     public static String tipoElfo(){
         int rdn = new Random().nextInt(1, 3);
         if(rdn == 1){
@@ -73,6 +75,59 @@ public class Elfo {
             return "mago";
         }
         return "errore";
+    }
+    
+    //controlla macchinario
+    public boolean ControllaMacchinario(Macchinario m){
+        if(m.nome.equals("tornio")){
+            return false;
+        }
+        else if(m.nome.equals("fresatrice")){
+            return false;
+        }
+        else if(m.nome.equals("taglia diamanti")){
+            return false;
+        }
+        else if(m.nome.equals("trita luminite")){
+            return true;
+        }
+        else if(m.nome.equals("estrusore di ghiaccio")){
+            return true;
+        }
+        else{
+            System.out.println(" c'e' stato qualche errore nella scelta del macchinario ");
+        }
+        return false;
+    }
+    
+    //metodo per aumentare la magia
+   public void aumetnaQualita(Macchinario m){
+       int r = new Random().nextInt(1, 11);
+       //if meccanico
+        if(this.tipoElfo().equals("meccanico") && this.ControllaMacchinario(m)==false){//se l'elfo è meccanico e usa un macchinario meccanico +++qualita se no + o - qualita
+            c.setQualita(150*2);
+        }
+        else if(this.tipoElfo().equals("meccanico") && this.ControllaMacchinario(m)==true){
+            if(r >=6) {
+                c.setQualita(75);
+            }
+            else{
+                c.setQualita(-100);
+            }
+        }
+        
+        //if mago
+        if(this.tipoElfo().equals("mago") && this.ControllaMacchinario(m)==true){
+            c.setQualita(150*2);
+        }
+        else if(this.tipoElfo().equals("mago") && this.ControllaMacchinario(m)==false){
+            if(r >=6) {
+                c.setQualita(75);
+            }
+            else{
+                c.setQualita(-100);
+            }
+        }
     }
     
     //to string
