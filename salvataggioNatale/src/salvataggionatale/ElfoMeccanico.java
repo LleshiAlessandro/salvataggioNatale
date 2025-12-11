@@ -4,6 +4,8 @@
  */
 package salvataggionatale;
 
+import java.util.Random;
+
 
 
 /**
@@ -15,5 +17,19 @@ public class ElfoMeccanico extends Elfo{
     public ElfoMeccanico(String nome,String s) {
         super(nome,s);
     }
-    
+    public void AumentaQualita(Macchinario m){
+        int r = new Random().nextInt(1, 11);
+        //if meccanico
+        if(this.ControllaMacchinario(m)==false){//se l'elfo è meccanico e usa un macchinario meccanico +++qualita se no + o - qualita
+            c.setQualita(150*2);
+        }
+        else if(this.ControllaMacchinario(m)==true){
+            if(r >=6) {
+                c.setQualita(75);
+            }
+            else{
+                c.setQualita(-100);
+            }
+        }
+    }
 }

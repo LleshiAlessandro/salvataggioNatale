@@ -100,35 +100,8 @@ public class Elfo {
         return false;
     }
     
-    //metodo per aumentare la magia
-   public void aumetnaQualita(Macchinario m){
-       int r = new Random().nextInt(1, 11);
-       //if meccanico
-        if(this.tipoElfo().equals("meccanico") && this.ControllaMacchinario(m)==false){//se l'elfo è meccanico e usa un macchinario meccanico +++qualita se no + o - qualita
-            c.setQualita(150*2);
-        }
-        else if(this.tipoElfo().equals("meccanico") && this.ControllaMacchinario(m)==true){
-            if(r >=6) {
-                c.setQualita(75);
-            }
-            else{
-                c.setQualita(-100);
-            }
-        }
-        
-        //if mago
-        if(this.tipoElfo().equals("mago") && this.ControllaMacchinario(m)==true){
-            c.setQualita(150*2);
-        }
-        else if(this.tipoElfo().equals("mago") && this.ControllaMacchinario(m)==false){
-            if(r >=6) {
-                c.setQualita(75);
-            }
-            else{
-                c.setQualita(-100);
-            }
-        }
-    }
+
+    
     
     //to string
     @Override

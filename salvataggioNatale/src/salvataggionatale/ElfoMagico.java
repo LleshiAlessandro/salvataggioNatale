@@ -4,6 +4,8 @@
  */
 package salvataggionatale;
 
+import java.util.Random;
+
 
 
 /**
@@ -12,8 +14,28 @@ package salvataggionatale;
  */
 public class ElfoMagico extends Elfo{
     
+    
+    
     public ElfoMagico(String nome,String s) {
         super(nome, s);
+    }
+  
+    //metodo per aumentare la magia
+    public void aumetnaQualita(Macchinario m){
+        int r = new Random().nextInt(1, 11);
+        
+        //if mago
+        if(this.ControllaMacchinario(m)==true){
+            c.setQualita(150*2);
+        }
+        else if(this.ControllaMacchinario(m)==false){
+            if(r >=6) {
+                c.setQualita(75);
+            }
+            else{
+                c.setQualita(-100);
+            }
+        }
     }
     
 }
