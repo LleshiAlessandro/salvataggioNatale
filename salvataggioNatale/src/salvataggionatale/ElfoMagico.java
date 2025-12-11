@@ -26,7 +26,7 @@ public class ElfoMagico extends Elfo{
         
         //if mago
         if(this.ControllaMacchinario(m)==true){
-            c.setQualita(150*2);
+            c.setQualita(125*2);
         }
         else if(this.ControllaMacchinario(m)==false){
             if(r >=6) {

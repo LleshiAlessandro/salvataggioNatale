@@ -13,6 +13,7 @@ public class Macchinario {
     private int usura;
     private int qualitaMeccanica;
     private int qualitaMagica;
+    private Giocattolo g;
     
     //costruttore della classe
     public Macchinario(String nome){
@@ -50,6 +51,10 @@ public class Macchinario {
     public int getStanchezza(){
         return usura;
     }
+    
+    
+    
+    
     
     //to string
     @Override

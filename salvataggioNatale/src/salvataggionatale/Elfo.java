@@ -99,10 +99,7 @@ public class Elfo {
         }
         return false;
     }
-    
 
-    
-    
     //to string
     @Override
     public String toString(){

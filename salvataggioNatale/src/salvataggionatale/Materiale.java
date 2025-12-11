@@ -9,11 +9,22 @@ package salvataggionatale;
  * @author aless
  */
 public class Materiale {
+    
+    
     public enum materiali{
         diamanti,
         legno,
         ghiaccio,
         cemento,
         luminite;
+    }
+    
+    public materiali ConvertiMateriale(String s){
+        for (materiali x : materiali.values()){
+            if(String.valueOf(x).equals(s)){
+                return x;
+            }
+        }
+        return null;
     }
 }

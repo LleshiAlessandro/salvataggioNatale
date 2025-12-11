@@ -21,7 +21,7 @@ public class ElfoMeccanico extends Elfo{
         int r = new Random().nextInt(1, 11);
         //if meccanico
         if(this.ControllaMacchinario(m)==false){//se l'elfo è meccanico e usa un macchinario meccanico +++qualita se no + o - qualita
-            c.setQualita(150*2);
+            c.setQualita(125*2);
         }
         else if(this.ControllaMacchinario(m)==true){
             if(r >=6) {

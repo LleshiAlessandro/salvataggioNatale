@@ -10,9 +10,9 @@ package salvataggionatale;
  */
 public class Giocattolo {
     private String nome;
-    private Materiale materiale;
+    Materiale.materiali materiale;
     
-    public Giocattolo(String nome,Materiale materiale){
+    public Giocattolo(String nome,Materiale.materiali materiale){
         this.nome = nome;
         this.materiale = materiale;
     }
@@ -26,10 +26,10 @@ public class Giocattolo {
     }
     
     //set e get materiali
-    public void setMateriale(Materiale materiale){
+    public void setMateriale(Materiale.materiali materiale){
         this.materiale = materiale;
     }
-    public Materiale getMateriale(){
+    public Materiale.materiali getMateriale(){
         return materiale;
     }
     
