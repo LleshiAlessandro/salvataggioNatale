@@ -13,8 +13,9 @@ import java.util.Random;
 public class Tornio extends Macchinario{
     CatenaDiMontaggio c;
 
-    public Tornio(String nome) {
+    public Tornio(String nome, CatenaDiMontaggio c) {
         super(nome);
+        this.c = c;
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){

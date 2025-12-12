@@ -13,8 +13,9 @@ import java.util.Random;
 public class TritaLuminite extends Macchinario{
     CatenaDiMontaggio c;
 
-    public TritaLuminite(String nome) {
+    public TritaLuminite(String nome, CatenaDiMontaggio c) {
         super(nome);
+        this.c = c;
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){

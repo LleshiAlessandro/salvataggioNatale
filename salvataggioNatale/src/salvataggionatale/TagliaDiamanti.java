@@ -14,8 +14,9 @@ public class TagliaDiamanti extends Macchinario{
     
     CatenaDiMontaggio c;
     
-    public TagliaDiamanti(String nome) {
+    public TagliaDiamanti(String nome, CatenaDiMontaggio c) {
         super(nome);
+        this.c = c;
     }
     
     //trova materiale

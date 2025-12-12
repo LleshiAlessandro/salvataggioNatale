@@ -13,8 +13,9 @@ import java.util.Random;
 public class EstrusoreDiGhiaccio extends Macchinario{
     CatenaDiMontaggio c;
 
-    public EstrusoreDiGhiaccio(String nome) {
+    public EstrusoreDiGhiaccio(String nome, CatenaDiMontaggio c) {
         super(nome);
+        this.c = c;
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){

@@ -13,8 +13,9 @@ import java.util.Random;
 public class Fresatrice extends Macchinario{
     CatenaDiMontaggio c;
 
-    public Fresatrice(String nome) {
+    public Fresatrice(String nome, CatenaDiMontaggio c) {
         super(nome);
+        this.c = c;
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){

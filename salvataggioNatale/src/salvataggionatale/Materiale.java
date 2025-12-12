@@ -19,12 +19,5 @@ public class Materiale {
         luminite;
     }
     
-    public materiali ConvertiMateriale(String s){
-        for (materiali x : materiali.values()){
-            if(String.valueOf(x).equals(s)){
-                return x;
-            }
-        }
-        return null;
-    }
+
 }
