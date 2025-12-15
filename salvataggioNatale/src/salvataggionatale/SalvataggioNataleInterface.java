@@ -5,6 +5,9 @@
 package salvataggionatale;
 
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +30,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     EstrusoreDiGhiaccio estrusoreDiGhiaccio;
     Materiale.materiali materiale;
     Giocattolo g;
+    int i = 0;
     
     
     
@@ -96,6 +100,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("per il funzionamento corretto dell'industria bisogna prima di tutto scegliere l'elfo che si vuole utilizzare, poii in secondo luogo bisogna assegnare un macchinario all'elfo precendentemente scelto (dato che ogni elfo ha la sua maestria ad usare un macchinario e quindi il giocattolo verrà perfetto grazie alla magia del natale), come terzo passaggio bisogna segliere il materiale con cui vogliamo creare il giocattolo (il materiale lo si sceglie in base al macchinario, dato che ogni macchinario aggiungerà la propria magia del natale al giocattolo), in fine creiamo il giocattolo e speriamo di aver fatto le giuste scelte per creare il giocattolo perfetto e di conseguenza accontentare tutti i bambini del mondo");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         scegliElfo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "augusto", "gabriele", "pietro" }));
         scegliElfo.setName("scegliElfo"); // NOI18N
@@ -104,6 +109,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 scegliElfoActionPerformed(evt);
             }
         });
+        getContentPane().add(scegliElfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 54, 180, 31));
 
         scegliMacchinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tornio", "taglia diamanti", "estrusore di ghiaccio", "fresatrice", "trita luminite" }));
         scegliMacchinario.setName("scegliElfo"); // NOI18N
@@ -112,6 +118,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 scegliMacchinarioActionPerformed(evt);
             }
         });
+        getContentPane().add(scegliMacchinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 180, 31));
 
         assegnaElfo.setText("assegna elfo -----> alla catena");
         assegnaElfo.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +126,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 assegnaElfoActionPerformed(evt);
             }
         });
+        getContentPane().add(assegnaElfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 91, 274, -1));
 
         assegnaMacchinario.setText("assegna macchinario ----> elfo selezionato");
         assegnaMacchinario.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +134,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 assegnaMacchinarioActionPerformed(evt);
             }
         });
+        getContentPane().add(assegnaMacchinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 218, 274, -1));
 
         materialiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "diamanti", "legno", "cemento", "ghiaccio", "luminite" }));
         materialiComboBox.setName("scegliElfo"); // NOI18N
@@ -134,8 +143,10 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 materialiComboBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(materialiComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 181, 31));
 
         nomeGiocattolo.setText("giocattolo richiesto <3");
+        getContentPane().add(nomeGiocattolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 460, 255, -1));
 
         creaGiocattolo.setText("crea giocattolo");
         creaGiocattolo.addActionListener(new java.awt.event.ActionListener() {
@@ -143,8 +154,10 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 creaGiocattoloActionPerformed(evt);
             }
         });
+        getContentPane().add(creaGiocattolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 431, 268, -1));
 
         informations.setToolTipText("");
+        getContentPane().add(informations, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 475, -1, -1));
 
         istruzioni.setText("istruzioni");
         istruzioni.addActionListener(new java.awt.event.ActionListener() {
@@ -152,12 +165,16 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 istruzioniActionPerformed(evt);
             }
         });
+        getContentPane().add(istruzioni, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 496, -1, -1));
 
         elfoSelezionato.setText("caratteristiche elfo selezionato");
+        getContentPane().add(elfoSelezionato, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 126, 340, -1));
 
         macchinarioSelezionato.setText("caratteristiche macchinario selezionato");
+        getContentPane().add(macchinarioSelezionato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 340, -1));
 
         materialeSelezionato.setText("materiale selezionato");
+        getContentPane().add(materialeSelezionato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 180, -1));
 
         jButton1.setText("evento casuale");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -165,9 +182,11 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 496, -1, -1));
 
         titolo.setFont(new java.awt.Font("Gabriola", 0, 24)); // NOI18N
         titolo.setText("Fabbrica di giocattoli di Babbo Natale");
+        getContentPane().add(titolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 6, -1, -1));
 
         selezionaMateriale.setText("assegna materiale");
         selezionaMateriale.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +194,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 selezionaMaterialeActionPerformed(evt);
             }
         });
+        getContentPane().add(selezionaMateriale, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 274, -1));
 
         giocattoliComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "robot", "accetta", "martello", "spada", "katana" }));
         giocattoliComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +202,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 giocattoliComboBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(giocattoliComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 394, 180, 31));
 
         startFabbrica.setText("start");
         startFabbrica.addActionListener(new java.awt.event.ActionListener() {
@@ -189,142 +210,31 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 startFabbricaActionPerformed(evt);
             }
         });
+        getContentPane().add(startFabbrica, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 496, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/augusto.jpg"))); // NOI18N
         jLabel1.setText("primo elfo");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 62, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/gabriele.jpg"))); // NOI18N
         jLabel2.setText("secondo elfo");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 70, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/pietro.jpg"))); // NOI18N
         jLabel4.setText("terzo elfo");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 96, 139));
 
-        jLabel6.setText("secondo macchinario");
+        jLabel6.setText("primo macchinario");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 150, 130));
 
-        jLabel7.setText("primo macchinario");
+        jLabel7.setText("secondo macchinario");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 150, 130));
 
         jLabel10.setText("terzo macchinario");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 328, 150, 150));
 
         jLabel5.setText("qualità:");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(materialiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(assegnaMacchinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(assegnaElfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(selezionaMateriale, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                        .addComponent(elfoSelezionato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(informations)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addComponent(titolo))
-                            .addComponent(nomeGiocattolo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(materialeSelezionato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                .addComponent(giocattoliComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(creaGiocattolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(istruzioni)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(startFabbrica)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton1)))
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(macchinarioSelezionato))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(scegliElfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(assegnaElfo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(elfoSelezionato)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(scegliMacchinario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(assegnaMacchinario)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addComponent(selezionaMateriale))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(macchinarioSelezionato, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(materialiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107)
-                        .addComponent(informations))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(materialeSelezionato)
-                                .addGap(0, 0, 0)
-                                .addComponent(giocattoliComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(creaGiocattolo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeGiocattolo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(istruzioni)
-                            .addComponent(jButton1)
-                            .addComponent(startFabbrica)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(12, 12, 12))
-        );
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 482, 50, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -422,19 +332,24 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
             jLabel4.setVisible(true);//terzo elfo
         }
         
+        JLabel[] labels = {jLabel6, jLabel7, jLabel10};
         
-        if(((String)scegliMacchinario.getSelectedItem()).equals("tornio")){
-            jLabel6.setVisible(true);//primo macchinario
+        //((String)scegliMacchinario.getSelectedItem()).equals("fresatrice") || ((String)scegliMacchinario.getSelectedItem()).equals("tornio") || ((String)scegliMacchinario.getSelectedItem()).equals("taglia diamanti") || ((String)scegliMacchinario.getSelectedItem()).equals("trita luminite") || ((String)scegliMacchinario.getSelectedItem()).equals("estrusore di ghiaccio")
+        
+        if(i < 3){
+            if(((String)scegliMacchinario.getSelectedItem()).equals("fresatrice") || ((String)scegliMacchinario.getSelectedItem()).equals("tornio")){
+                jLabel6.setVisible(true);
+                labels[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
+            }
+            else if(((String)scegliMacchinario.getSelectedItem()).equals("taglia diamanti")){
+                jLabel7.setVisible(true);//secondo macchianrio
+            }
+            else if(((String)scegliMacchinario.getSelectedItem()).equals("trita luminite") || ((String)scegliMacchinario.getSelectedItem()).equals("estrusore di ghiaccio")){
+                jLabel10.setVisible(true);//terzo macchinario
+            }
+
+            i++;
         }
-        else if(((String)scegliMacchinario.getSelectedItem()).equals("taglia diamanti")){
-            jLabel7.setVisible(true);//secondo macchianrio
-        }
-        else if(((String)scegliMacchinario.getSelectedItem()).equals("fresatrice")){
-            jLabel10.setVisible(true);//terzo macchinario
-        }
-        
-        
-        
         
         
         
