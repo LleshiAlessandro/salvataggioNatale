@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class CatenaDiMontaggio {
     private int qualita = 0;
-    private ArrayList <Elfo> elfi = new ArrayList();
-    private ArrayList <Macchinario> macchinari = new ArrayList();
+    ArrayList <Elfo> elfi = new ArrayList();
+    ArrayList <Macchinario> macchinari = new ArrayList();
     
     //numero elfi
     public int getNumElfi(){

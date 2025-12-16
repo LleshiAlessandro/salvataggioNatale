@@ -31,6 +31,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     Materiale.materiali materiale;
     Giocattolo g;
     int i = 0;
+    int j = 0;
     
     
     
@@ -85,6 +86,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        punteggio = new javax.swing.JLabel();
 
         scegliElfo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         scegliElfo1.setName("scegliElfo"); // NOI18N
@@ -165,7 +167,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 istruzioniActionPerformed(evt);
             }
         });
-        getContentPane().add(istruzioni, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 496, -1, -1));
+        getContentPane().add(istruzioni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
         elfoSelezionato.setText("caratteristiche elfo selezionato");
         getContentPane().add(elfoSelezionato, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 126, 340, -1));
@@ -182,7 +184,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 496, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         titolo.setFont(new java.awt.Font("Gabriola", 0, 24)); // NOI18N
         titolo.setText("Fabbrica di giocattoli di Babbo Natale");
@@ -210,31 +212,17 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
                 startFabbricaActionPerformed(evt);
             }
         });
-        getContentPane().add(startFabbrica, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 496, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/augusto.jpg"))); // NOI18N
-        jLabel1.setText("primo elfo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 62, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/gabriele.jpg"))); // NOI18N
-        jLabel2.setText("secondo elfo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 70, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvataggionatale/elfi/pietro.jpg"))); // NOI18N
-        jLabel4.setText("terzo elfo");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 96, 139));
-
-        jLabel6.setText("primo macchinario");
+        getContentPane().add(startFabbrica, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 80, 100));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 80, 110));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 140));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 150, 130));
-
-        jLabel7.setText("secondo macchinario");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 150, 130));
-
-        jLabel10.setText("terzo macchinario");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 328, 150, 150));
 
         jLabel5.setText("qualità:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 482, 50, 50));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 482, 110, 50));
+        getContentPane().add(punteggio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 90, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,17 +290,23 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_giocattoliComboBoxActionPerformed
 
     private void startFabbricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startFabbricaActionPerformed
-        eMa = new ElfoMagico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());
+        creaGiocattolo.disable();
+        selezionaMateriale.disable();
         
-        eMe = new ElfoMeccanico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());
-        tornio = new Tornio("tornio", c);
+        eMa = new ElfoMagico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo magico
+        
+        eMe = new ElfoMeccanico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo meccanico
+        
+        tornio = new Tornio("tornio", c);//macchinari
         fresatrice = new Fresatrice("fresatrice", c);
         tagliaDiamanti = new TagliaDiamanti("taglia diamanti", c);
         estrusoreDiGhiaccio = new EstrusoreDiGhiaccio("estrusore di ghiaccio", c);
         tritaLuminite = new TritaLuminite("trita luminite", c);
+        
         String s = (String)materialiComboBox.getSelectedItem();
-        materiale = Materiale.materiali.valueOf(s);
-        g = new Giocattolo((String)giocattoliComboBox.getSelectedItem(), materiale);
+        materiale = Materiale.materiali.valueOf(s);//materiale
+        
+        g = new Giocattolo((String)giocattoliComboBox.getSelectedItem(), materiale);//giocattolo
         
         eMa.ControllaMacchinario(m);
         eMe.ControllaMacchinario(m);
@@ -322,35 +316,68 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         tagliaDiamanti.AumentaQualita(g);
         tritaLuminite.AumentaQualita(g);
         
-        if(((String)scegliElfo.getSelectedItem()).equals("augusto")){
-            jLabel1.setVisible(true);//primo elfo
-        }
-        else if(((String)scegliElfo.getSelectedItem()).equals("gabriele")){
-            jLabel2.setVisible(true);//secondo elfo
-        }
-        else if(((String)scegliElfo.getSelectedItem()).equals("pietro")){
-            jLabel4.setVisible(true);//terzo elfo
-        }
         
-        JLabel[] labels = {jLabel6, jLabel7, jLabel10};
-        
-        //((String)scegliMacchinario.getSelectedItem()).equals("fresatrice") || ((String)scegliMacchinario.getSelectedItem()).equals("tornio") || ((String)scegliMacchinario.getSelectedItem()).equals("taglia diamanti") || ((String)scegliMacchinario.getSelectedItem()).equals("trita luminite") || ((String)scegliMacchinario.getSelectedItem()).equals("estrusore di ghiaccio")
-        
+        jLabel1.setVisible(true);//primo elfo
+        jLabel2.setVisible(true);//secondo elfo
+        jLabel4.setVisible(true);//terzo elfo
+        JLabel[] JElfi = {jLabel1, jLabel2, jLabel4};
+        //scelta elfi
         if(i < 3){
-            if(((String)scegliMacchinario.getSelectedItem()).equals("fresatrice") || ((String)scegliMacchinario.getSelectedItem()).equals("tornio")){
-                jLabel6.setVisible(true);
-                labels[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
+            //devo usare c.elfi[i] per vedere se l'elfo è gia stato inserito nelle label
+            if(!c.elfi.equals((String)scegliElfo.getSelectedItem())){
+                switch ((String)scegliElfo.getSelectedItem()) {
+                    case "augusto":
+                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/augusto.jpg")));
+                        break;
+                    case "gabriele":
+                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/gabriele.jpg")));
+                        break;
+                    case "pietro":
+                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/pietro.jpg")));
+                        break;
+                    default:
+                        break;
+                }
             }
-            else if(((String)scegliMacchinario.getSelectedItem()).equals("taglia diamanti")){
-                jLabel7.setVisible(true);//secondo macchianrio
-            }
-            else if(((String)scegliMacchinario.getSelectedItem()).equals("trita luminite") || ((String)scegliMacchinario.getSelectedItem()).equals("estrusore di ghiaccio")){
-                jLabel10.setVisible(true);//terzo macchinario
-            }
-
-            i++;
         }
         
+        
+        
+        //scelta macchinario
+        JLabel[] JMacchinari = {jLabel6, jLabel7, jLabel10};
+        jLabel6.setVisible(true);
+        jLabel7.setVisible(true);//secondo macchianrio
+        jLabel10.setVisible(true);//terzo macchinario
+        if(i < 3){
+            //devo usare c.macchinario[i] per vedere se il macchinario è gia stato inserito nelle label
+            if(!c.macchinari.equals((String)scegliMacchinario.getSelectedItem())){
+                switch ((String)scegliMacchinario.getSelectedItem()) {
+                    case "fresatrice":
+                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
+                        break;
+                    case "tornio":
+                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/tornio.png"))); //primo macchinario
+                        break;
+                    case "taglia diamanti":
+                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/taglia diamanti.png")));
+                        break;
+                    case "trita luminite":
+                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/trita luminite.png")));
+                        break;
+                    case "estrusore di ghiaccio":
+                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/estrusore di ghiaccio.png"))); //primo macchinario
+                        break;
+                    default:
+                        break;
+                }
+                i++;
+            }
+        }
+        
+        j++;
+        if(j == 3){
+            punteggio.setText(String.valueOf(c.getQualita()));
+        }
         
         
         
@@ -405,6 +432,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel materialeSelezionato;
     private javax.swing.JComboBox<String> materialiComboBox;
     private javax.swing.JLabel nomeGiocattolo;
+    private javax.swing.JLabel punteggio;
     private javax.swing.JComboBox<String> scegliElfo;
     private javax.swing.JComboBox<String> scegliElfo1;
     private javax.swing.JComboBox<String> scegliMacchinario;
