@@ -4,7 +4,9 @@
  */
 package salvataggionatale;
 
+import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -12,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CatenaDiMontaggio {
     private int qualita = 0;
-    ArrayList <Elfo> elfi = new ArrayList();
+    ArrayList <String> elfi = new ArrayList();
     ArrayList <Macchinario> macchinari = new ArrayList();
     
     //numero elfi
@@ -20,7 +22,7 @@ public class CatenaDiMontaggio {
         return elfi.size();
     }
     //add elfi
-    public void addElfi(Elfo e){
+    public void addElfi(String e){
         elfi.add(e);
     }
     
@@ -39,5 +41,22 @@ public class CatenaDiMontaggio {
     }
     public int getQualita(){
         return qualita;
+    }
+    
+    public String controllaElfo(String e){
+        
+        if(elfi.contains(e)){
+            switch (e) {
+                case "augusto":
+                    return "/salvataggionatale/elfi/augusto.jpg";
+                case "gabriele":
+                    return "/salvataggionatale/elfi/gabriele.jpg";
+                case "pietro":
+                    return "/salvataggionatale/elfi/pietro.jpg";
+                default:
+                    break;
+            }
+        }
+        return "";
     }
 }

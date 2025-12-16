@@ -6,6 +6,7 @@ package salvataggionatale;
 
 import java.awt.Color;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,9 +30,11 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     Fresatrice fresatrice;
     EstrusoreDiGhiaccio estrusoreDiGhiaccio;
     Materiale.materiali materiale;
+    ArrayList <String> nomiElfi = new ArrayList();
     Giocattolo g;
     int i = 0;
     int j = 0;
+    int k = 0;
     
     
     
@@ -260,10 +263,22 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_istruzioniActionPerformed
 
     private void assegnaElfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaElfoActionPerformed
-        String tipo = Elfo.tipoElfo();
-        e = new Elfo((String)scegliElfo.getSelectedItem(), tipo);
-        elfoSelezionato.setText(String.valueOf(e));
-        c.addElfi(e);
+        if(nomiElfi.size() == 0){
+            nomiElfi.add((String)scegliElfo.getSelectedItem());
+            String tipo = Elfo.tipoElfo();
+            e = new Elfo((String)scegliElfo.getSelectedItem(), tipo);
+            elfoSelezionato.setText(String.valueOf(e));
+            c.addElfi(e.getNome()); 
+        }
+        else{
+            if(!nomiElfi.contains((String)scegliElfo.getSelectedItem())){
+            String tipo = Elfo.tipoElfo();
+            e = new Elfo((String)scegliElfo.getSelectedItem(), tipo);
+            nomiElfi.add((String)scegliElfo.getSelectedItem());
+            elfoSelezionato.setText(String.valueOf(e));
+            c.addElfi(e.getNome()); 
+            }
+        }
     }//GEN-LAST:event_assegnaElfoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -290,13 +305,13 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_giocattoliComboBoxActionPerformed
 
     private void startFabbricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startFabbricaActionPerformed
-        creaGiocattolo.disable();
-        selezionaMateriale.disable();
+        creaGiocattolo.setEnabled(false);
+        selezionaMateriale.setEnabled(false);
         
         eMa = new ElfoMagico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo magico
         
         eMe = new ElfoMeccanico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo meccanico
-        
+               
         tornio = new Tornio("tornio", c);//macchinari
         fresatrice = new Fresatrice("fresatrice", c);
         tagliaDiamanti = new TagliaDiamanti("taglia diamanti", c);
@@ -324,21 +339,13 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         //scelta elfi
         if(i < 3){
             //devo usare c.elfi[i] per vedere se l'elfo è gia stato inserito nelle label
-            if(!c.elfi.equals((String)scegliElfo.getSelectedItem())){
-                switch ((String)scegliElfo.getSelectedItem()) {
-                    case "augusto":
-                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/augusto.jpg")));
-                        break;
-                    case "gabriele":
-                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/gabriele.jpg")));
-                        break;
-                    case "pietro":
-                        JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/pietro.jpg")));
-                        break;
-                    default:
-                        break;
+        for (String ee: nomiElfi){
+                if(c.elfi.contains(ee)){
+                    JElfi[i].setIcon(new ImageIcon((URL)getClass().getResource(c.controllaElfo(ee))));
+                    i++;
                 }
             }
+        
         }
         
         
@@ -348,29 +355,29 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         jLabel6.setVisible(true);
         jLabel7.setVisible(true);//secondo macchianrio
         jLabel10.setVisible(true);//terzo macchinario
-        if(i < 3){
+        if(k < 3){
             //devo usare c.macchinario[i] per vedere se il macchinario è gia stato inserito nelle label
             if(!c.macchinari.equals((String)scegliMacchinario.getSelectedItem())){
                 switch ((String)scegliMacchinario.getSelectedItem()) {
                     case "fresatrice":
-                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
+                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
                         break;
                     case "tornio":
-                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/tornio.png"))); //primo macchinario
+                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/tornio.png"))); //primo macchinario
                         break;
                     case "taglia diamanti":
-                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/taglia diamanti.png")));
+                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/taglia diamanti.png")));
                         break;
                     case "trita luminite":
-                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/trita luminite.png")));
+                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/trita luminite.png")));
                         break;
                     case "estrusore di ghiaccio":
-                        JMacchinari[i].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/estrusore di ghiaccio.png"))); //primo macchinario
+                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/estrusore di ghiaccio.png"))); //primo macchinario
                         break;
                     default:
                         break;
                 }
-                i++;
+                k++;
             }
         }
         
@@ -378,7 +385,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         if(j == 3){
             punteggio.setText(String.valueOf(c.getQualita()));
         }
-        
+        c.elfi.clear();
         
         
         
