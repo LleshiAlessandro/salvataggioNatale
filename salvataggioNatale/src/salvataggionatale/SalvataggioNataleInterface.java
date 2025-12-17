@@ -31,6 +31,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     EstrusoreDiGhiaccio estrusoreDiGhiaccio;
     Materiale.materiali materiale;
     ArrayList <String> nomiElfi = new ArrayList();
+    ArrayList <String> nomiMacchinari = new ArrayList();
     Giocattolo g;
     int i = 0;
     int j = 0;
@@ -286,9 +287,22 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void assegnaMacchinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaMacchinarioActionPerformed
-        m = new Macchinario((String)scegliMacchinario.getSelectedItem());
-        macchinarioSelezionato.setText(String.valueOf(m));
-        c.addMacchinari(m);
+
+                
+        if(nomiMacchinari.size() == 0){
+            nomiMacchinari.add((String)scegliMacchinario.getSelectedItem());
+            m = new Macchinario((String)scegliMacchinario.getSelectedItem());
+            macchinarioSelezionato.setText(String.valueOf(m));
+            c.addMacchinari(m.getNome()); 
+        }
+        else{
+            if(!nomiMacchinari.contains((String)scegliMacchinario.getSelectedItem())){
+            m = new Macchinario((String)scegliMacchinario.getSelectedItem());
+            nomiMacchinari.add((String)scegliMacchinario.getSelectedItem());
+            macchinarioSelezionato.setText(String.valueOf(m));
+            c.addMacchinari(m.getNome()); 
+            }
+        }
     }//GEN-LAST:event_assegnaMacchinarioActionPerformed
 
     private void selezionaMaterialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaMaterialeActionPerformed
@@ -306,7 +320,6 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
 
     private void startFabbricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startFabbricaActionPerformed
         creaGiocattolo.setEnabled(false);
-        selezionaMateriale.setEnabled(false);
         
         eMa = new ElfoMagico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo magico
         
@@ -356,29 +369,13 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         jLabel7.setVisible(true);//secondo macchianrio
         jLabel10.setVisible(true);//terzo macchinario
         if(k < 3){
-            //devo usare c.macchinario[i] per vedere se il macchinario è gia stato inserito nelle label
-            if(!c.macchinari.equals((String)scegliMacchinario.getSelectedItem())){
-                switch ((String)scegliMacchinario.getSelectedItem()) {
-                    case "fresatrice":
-                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/fresatrice.png"))); //primo macchinario
-                        break;
-                    case "tornio":
-                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/tornio.png"))); //primo macchinario
-                        break;
-                    case "taglia diamanti":
-                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/taglia diamanti.png")));
-                        break;
-                    case "trita luminite":
-                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/trita luminite.png")));
-                        break;
-                    case "estrusore di ghiaccio":
-                        JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource("/salvataggionatale/elfi/estrusore di ghiaccio.png"))); //primo macchinario
-                        break;
-                    default:
-                        break;
+        for (String ee: nomiMacchinari){
+                if(c.macchinari.contains(ee)){
+                    JMacchinari[k].setIcon(new ImageIcon((URL)getClass().getResource(c.controllaMacchinario(ee))));
+                    k++;
                 }
-                k++;
             }
+        
         }
         
         j++;
@@ -386,6 +383,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
             punteggio.setText(String.valueOf(c.getQualita()));
         }
         c.elfi.clear();
+        c.macchinari.clear();
         
         
         

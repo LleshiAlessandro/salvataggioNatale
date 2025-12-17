@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 public class CatenaDiMontaggio {
     private int qualita = 0;
     ArrayList <String> elfi = new ArrayList();
-    ArrayList <Macchinario> macchinari = new ArrayList();
+    ArrayList <String> macchinari = new ArrayList();
     
     //numero elfi
     public int getNumElfi(){
@@ -31,8 +31,8 @@ public class CatenaDiMontaggio {
         return macchinari.size();
     }
     //add mecchinari
-    public void addMacchinari(Macchinario m){
-        macchinari.add(m);
+    public void addMacchinari(String e){
+        macchinari.add(e);
     }
     
     //get e set qualita
@@ -53,6 +53,26 @@ public class CatenaDiMontaggio {
                     return "/salvataggionatale/elfi/gabriele.jpg";
                 case "pietro":
                     return "/salvataggionatale/elfi/pietro.jpg";
+                default:
+                    break;
+            }
+        }
+        return "";
+    }
+    
+    public String controllaMacchinario(String e){
+        if(macchinari.contains(e)){
+            switch (e) {
+                case "tornio":
+                    return "/salvataggionatale/elfi/tornio.png";
+                case "fresatrice":
+                    return "/salvataggionatale/elfi/fresatrice.png";
+                case "taglia diamanti":
+                    return "/salvataggionatale/elfi/taglia diamanti.png";
+                case "trita luminite":
+                    return "/salvataggionatale/elfi/trita luminite.png";
+                case "estrusore di ghiaccio":
+                    return "/salvataggionatale/elfi/estrusore di ghiaccio.png";
                 default:
                     break;
             }

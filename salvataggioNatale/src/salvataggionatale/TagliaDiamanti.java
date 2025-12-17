@@ -33,10 +33,10 @@ public class TagliaDiamanti extends Macchinario{
     
     public void AumentaQualita(Giocattolo g){
         int r = new Random().nextInt(1, 11);
-        if (this.ControllaMateriale(g)){
+        if (this.ControllaMateriale(g) == true){
             c.setQualita(125*2);
         }
-        else if (!this.ControllaMateriale(g)){
+        else{
             if(r >=6) {
                 c.setQualita(25);
             }
