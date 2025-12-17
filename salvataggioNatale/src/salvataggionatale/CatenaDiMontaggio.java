@@ -4,9 +4,7 @@
  */
 package salvataggionatale;
 
-import java.net.URL;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +14,7 @@ public class CatenaDiMontaggio {
     private int qualita = 0;
     ArrayList <String> elfi = new ArrayList();
     ArrayList <String> macchinari = new ArrayList();
+    EventManager e;
     
     //numero elfi
     public int getNumElfi(){
@@ -78,5 +77,21 @@ public class CatenaDiMontaggio {
             }
         }
         return "";
+    }
+    
+    public void events(){
+        switch (EventManager.GestioneEventi()) {
+            case cioccolata_calda:
+                setQualita(30);
+                break;
+            case guasto_catena:
+                setQualita(-75);
+                break;
+            case magia_del_natale:
+                setQualita(100);
+                break;
+            default:
+                break;
+        }
     }
 }

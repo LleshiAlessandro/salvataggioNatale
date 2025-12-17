@@ -4,6 +4,9 @@
  */
 package salvataggionatale;
 
+import java.util.ArrayList;
+
+
 /**
  *
  * @author aless
@@ -14,10 +17,13 @@ public class Macchinario {
     private int qualitaMeccanica;
     private int qualitaMagica;
     private Giocattolo g;
+    CatenaDiMontaggio c;
+
     
     //costruttore della classe
-    public Macchinario(String nome){
+    public Macchinario(String nome, CatenaDiMontaggio c){
         this.nome = nome;
+        this.c = c;
     }
     
     //get e set del nome
@@ -52,7 +58,36 @@ public class Macchinario {
         return usura;
     }
     
-    
+    public void AumentaQualita(Giocattolo g, ArrayList<String> nomiMacchinari){
+        if (nomiMacchinari.contains("tornio")){
+            if(new Tornio("tornio", c).ControllaMateriale(g)){
+            c.setQualita(25*2);
+            }
+        }
+        else if (nomiMacchinari.contains("taglia diamanti")){
+            if(new TagliaDiamanti("taglia diamanti", c).ControllaMateriale(g)){
+            c.setQualita(25*2);
+            }
+        }
+
+        else if (nomiMacchinari.contains("trita luminite")){
+            if(new TritaLuminite("trita luminite", c).ControllaMateriale(g)){
+            c.setQualita(25*2);
+            }
+        }
+
+        else if (nomiMacchinari.contains("fresatrice")){
+            if(new Fresatrice("fresatrice", c).ControllaMateriale(g)){
+            c.setQualita(25*2);
+            }
+        }
+
+        else if (nomiMacchinari.contains("estrusore di ghiaccio")){
+            if(new EstrusoreDiGhiaccio("estrusore di ghiaccio", c).ControllaMateriale(g)){
+            c.setQualita(25*2);
+            }
+        }
+    }
     
     
     

@@ -4,7 +4,6 @@
  */
 package salvataggionatale;
 
-import java.util.Random;
 
 /**
  *
@@ -12,11 +11,10 @@ import java.util.Random;
  */
 public class TagliaDiamanti extends Macchinario{
     
-    CatenaDiMontaggio c;
+    
     
     public TagliaDiamanti(String nome, CatenaDiMontaggio c) {
-        super(nome);
-        this.c = c;
+        super(nome,c);
     }
     
     //trova materiale
@@ -31,18 +29,5 @@ public class TagliaDiamanti extends Macchinario{
     
     
     
-    public void AumentaQualita(Giocattolo g){
-        int r = new Random().nextInt(1, 11);
-        if (this.ControllaMateriale(g) == true){
-            c.setQualita(125*2);
-        }
-        else{
-            if(r >=6) {
-                c.setQualita(25);
-            }
-            else{
-                c.setQualita(-75);
-            }
-        }
-    }
+
 }

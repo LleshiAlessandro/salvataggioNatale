@@ -4,18 +4,15 @@
  */
 package salvataggionatale;
 
-import java.util.Random;
-
 /**
  *
  * @author aless
  */
 public class Fresatrice extends Macchinario{
-    CatenaDiMontaggio c;
 
-    public Fresatrice(String nome, CatenaDiMontaggio c) {
-        super(nome);
-        this.c = c;
+
+    public Fresatrice(String nome,CatenaDiMontaggio c) {
+        super(nome,c);
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){
@@ -27,20 +24,5 @@ public class Fresatrice extends Macchinario{
         }
     }
     
-    
-    
-    public void AumentaQualita(Giocattolo g){
-        int r = new Random().nextInt(1, 11);
-        if (this.ControllaMateriale(g) == true){
-            c.setQualita(125*2);
-        }
-        else{
-            if(r >=6) {
-                c.setQualita(25);
-            }
-            else{
-                c.setQualita(-75);
-            }
-        }
-    }
+
 }
