@@ -16,17 +16,19 @@ public enum EventManager {
     magia_del_natale;
         
     public static EventManager GestioneEventi(){
-        int n = new Random().nextInt(1, 101);
+        Random n = new Random();
+        int j = n.nextInt(0, 11);
 
-        if(n <= 10 && n>=0){
-            return cioccolata_calda;
-        }
-        else if(n >= 11 && n <= 60){
-             return guasto_catena;
-        }
-        else{
+        if(j>=0 && j <= 1){
             return magia_del_natale;
         }
+        else if(j >= 2 && j <= 4){
+             return guasto_catena;
+        }
+        else if(j >= 5 && j <=10){
+            return cioccolata_calda;
+        }
+        return null;
     }
         
 }

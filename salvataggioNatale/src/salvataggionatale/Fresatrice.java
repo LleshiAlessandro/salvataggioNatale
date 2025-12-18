@@ -16,7 +16,7 @@ public class Fresatrice extends Macchinario{
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){
-        if(g.getMateriale().equals(Materiale.materiali.cemento)){
+        if(g.getMateriale().equals(Materiale.materiali.legno)){
             return true;
         }
         else{

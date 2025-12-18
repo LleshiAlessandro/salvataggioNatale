@@ -17,7 +17,7 @@ public class Tornio extends Macchinario{
     }
     //trova materiale
     public boolean ControllaMateriale(Giocattolo g){
-        if(g.getMateriale().equals(Materiale.materiali.legno)){
+        if(g.getMateriale().equals(Materiale.materiali.cemento)){
             return true;
         }
         else{

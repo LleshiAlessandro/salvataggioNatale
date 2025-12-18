@@ -12,10 +12,7 @@ import java.util.Random;
  */
 public class Elfo {
     private String nome;
-    private int abilitaMeccanica;
     private String specializzazione;
-    private int stanchezza;
-    private int abilitaMagica;
 
     CatenaDiMontaggio c = new CatenaDiMontaggio();
     
@@ -40,30 +37,8 @@ public class Elfo {
     public String getSpecializzazione(){
         return specializzazione;
     }
+
     
-    //get e set dell'abilità meccanica
-    public void setMeccanica(int abilitaMeccanica){
-        this.abilitaMeccanica = abilitaMeccanica;
-    }
-    public int getMeccanica(){
-        return abilitaMeccanica;
-    }
-    
-    //get e set dell'abilità magica
-    public void setMagia(int abilitaMagica){
-        this.abilitaMagica = abilitaMagica;
-    }
-    public int getMagia(){
-        return abilitaMagica;
-    }
-    
-    //get e set della stanchezza
-    public void setStanchezza(int stanchezza){
-        this.stanchezza = stanchezza;
-    }
-    public int getStanchezza(){
-        return stanchezza;
-    }
     
     //controllo tipo elfo
     public static String tipoElfo(){
@@ -79,23 +54,8 @@ public class Elfo {
     
     //controlla macchinario
     public boolean ControllaMacchinario(Macchinario m){
-        if(m.nome.equals("tornio")){
-            return false;
-        }
-        else if(m.nome.equals("fresatrice")){
-            return false;
-        }
-        else if(m.nome.equals("taglia diamanti")){
-            return false;
-        }
-        else if(m.nome.equals("trita luminite")){
+        if(m.nome.equals("trita luminite")  || m.nome.equals("estrusore di ghiaccio")){
             return true;
-        }
-        else if(m.nome.equals("estrusore di ghiaccio")){
-            return true;
-        }
-        else{
-            System.out.println(" c'e' stato qualche errore nella scelta del macchinario ");
         }
         return false;
     }

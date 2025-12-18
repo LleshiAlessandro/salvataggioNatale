@@ -5,6 +5,9 @@
 package salvataggionatale;
 
 import java.util.ArrayList;
+import static salvataggionatale.EventManager.cioccolata_calda;
+import static salvataggionatale.EventManager.guasto_catena;
+import static salvataggionatale.EventManager.magia_del_natale;
 
 /**
  *
@@ -36,7 +39,7 @@ public class CatenaDiMontaggio {
     
     //get e set qualita
     public void setQualita(int qualita){
-        this.qualita += qualita;
+        this.qualita = this.qualita + qualita;
     }
     public int getQualita(){
         return qualita;
@@ -80,18 +83,19 @@ public class CatenaDiMontaggio {
     }
     
     public void events(){
-        switch (EventManager.GestioneEventi()) {
-            case cioccolata_calda:
-                setQualita(30);
-                break;
-            case guasto_catena:
-                setQualita(-75);
-                break;
-            case magia_del_natale:
-                setQualita(100);
-                break;
-            default:
-                break;
-        }
+        e = EventManager.GestioneEventi();
+        switch (e) {
+                case magia_del_natale:
+                    setQualita(100);
+                    break;
+                case cioccolata_calda:
+                    setQualita(30);
+                    break;
+                case guasto_catena:
+                    setQualita(-75);
+                    break;
+                default:
+                    break;
+            }
     }
 }
