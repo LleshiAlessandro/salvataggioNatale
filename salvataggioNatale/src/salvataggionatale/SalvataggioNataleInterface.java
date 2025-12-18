@@ -36,11 +36,15 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     int i = 0;
     int j = 0;
     int k = 0;
+    boolean a;
+    boolean b;
+    boolean z;
+    boolean d;
     
     
     
     public SalvataggioNataleInterface() {
-        Color c = new Color(30,160,30);
+        Color c = new Color(30,140,30);
         this.getContentPane().setBackground(c);
         initComponents();
         
@@ -52,6 +56,8 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         jLabel6.setVisible(false);//primo macchinario
         jLabel7.setVisible(false);//secondo macchianrio
         jLabel10.setVisible(false);//terzo macchinario
+        
+        startFabbrica.setEnabled(false);
     }
     
     /**
@@ -223,7 +229,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 150, 130));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 150, 130));
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 328, 150, 150));
-        getContentPane().add(punteggio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 90, 20));
+        getContentPane().add(punteggio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 90, 20));
 
         jLabel8.setText("qualità:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 110, 50));
@@ -264,6 +270,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_istruzioniActionPerformed
 
     private void assegnaElfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaElfoActionPerformed
+        a = true;
         if(nomiElfi.size() == 0){
             nomiElfi.add((String)scegliElfo.getSelectedItem());
             String tipo = Elfo.tipoElfo();
@@ -283,19 +290,23 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_assegnaElfoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //da sistemare il calcolo della qualità
+        //il fatto che se sbaglio a selezionare un elfo e poi lo cambio mi mettre quello di prima e quello nuovo
+        //stessa cosa per i macchinari
+        //poi devo controllare gli eventi e devo vedere se va bene
+        
         c.events();
         
         String testo = " l 'evento che ti è capitato è: " + EventManager.GestioneEventi();               
         JOptionPane.showMessageDialog(null, testo);
         
-        
-        
+        punteggio.setText(String.valueOf(c.getQualita()));
         jButton1.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void assegnaMacchinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assegnaMacchinarioActionPerformed
 
-                
+        b = true;
         if(nomiMacchinari.size() == 0){
             nomiMacchinari.add((String)scegliMacchinario.getSelectedItem());
             m = new Macchinario((String)scegliMacchinario.getSelectedItem(), c);
@@ -313,12 +324,17 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_assegnaMacchinarioActionPerformed
 
     private void selezionaMaterialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaMaterialeActionPerformed
-        
+        z = true;
         materialeSelezionato.setText((String)materialiComboBox.getSelectedItem());
     }//GEN-LAST:event_selezionaMaterialeActionPerformed
 
     private void creaGiocattoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaGiocattoloActionPerformed
+        d = true;
         nomeGiocattolo.setText((String)giocattoliComboBox.getSelectedItem());
+        
+        if(a == true && b == true && z == true && d == true){
+            startFabbrica.setEnabled(true);
+        }
     }//GEN-LAST:event_creaGiocattoloActionPerformed
 
     private void giocattoliComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giocattoliComboBoxActionPerformed
@@ -329,7 +345,6 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         creaGiocattolo.setEnabled(false);
         
         eMa = new ElfoMagico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo magico
-        
         eMe = new ElfoMeccanico((String)scegliElfo.getSelectedItem(), Elfo.tipoElfo());//elfo meccanico
                
         tornio = new Tornio("tornio",c);//macchinari
@@ -342,10 +357,6 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         materiale = Materiale.materiali.valueOf(s);//materiale
         
         g = new Giocattolo((String)giocattoliComboBox.getSelectedItem(), materiale);//giocattolo
-        
-        eMa.ControllaMacchinario(m);
-        eMe.ControllaMacchinario(m);
-        m.AumentaQualita(g, nomiMacchinari);
         
         
         jLabel1.setVisible(true);//primo elfo
@@ -371,6 +382,7 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         jLabel6.setVisible(true);
         jLabel7.setVisible(true);//secondo macchianrio
         jLabel10.setVisible(true);//terzo macchinario
+        //scelta macchinario
         if(k < 3){
         for (String ee: nomiMacchinari){
                 if(c.macchinari.contains(ee)){
@@ -381,15 +393,17 @@ public class SalvataggioNataleInterface extends javax.swing.JFrame {
         
         }
         
+        eMa.ControllaMacchinario(m);
+        eMe.ControllaMacchinario(m);
+        m.AumentaQualita(g, nomiMacchinari);
+        
         j++;
         if(j == 3){
             punteggio.setText(String.valueOf(c.getQualita()));
         }
+        
         c.elfi.clear();
         c.macchinari.clear();
-        
-        
-        
     }//GEN-LAST:event_startFabbricaActionPerformed
 
     /**

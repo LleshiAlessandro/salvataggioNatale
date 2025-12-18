@@ -61,30 +61,30 @@ public class Macchinario {
     public void AumentaQualita(Giocattolo g, ArrayList<String> nomiMacchinari){
         if (nomiMacchinari.contains("tornio")){
             if(new Tornio("tornio", c).ControllaMateriale(g)){
-            c.setQualita(25*2);
+            c.setQualita(125*2);
             }
         }
         else if (nomiMacchinari.contains("taglia diamanti")){
             if(new TagliaDiamanti("taglia diamanti", c).ControllaMateriale(g)){
-            c.setQualita(25*2);
+            c.setQualita(125*2);
             }
         }
 
         else if (nomiMacchinari.contains("trita luminite")){
             if(new TritaLuminite("trita luminite", c).ControllaMateriale(g)){
-            c.setQualita(25*2);
+            c.setQualita(125*2);
             }
         }
 
         else if (nomiMacchinari.contains("fresatrice")){
             if(new Fresatrice("fresatrice", c).ControllaMateriale(g)){
-            c.setQualita(25*2);
+            c.setQualita(125*2);
             }
         }
 
         else if (nomiMacchinari.contains("estrusore di ghiaccio")){
             if(new EstrusoreDiGhiaccio("estrusore di ghiaccio", c).ControllaMateriale(g)){
-            c.setQualita(25*2);
+            c.setQualita(125*2);
             }
         }
     }
